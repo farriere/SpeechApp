@@ -1,8 +1,8 @@
 platform :ios, '9.0'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
-target 'SpeechApptemp' do
-  # Pods for SpeechApptemp
+target 'SpeechApp' do
+  # Pods for SpeechApp
   pod 'FBLazyVector', :path => "../node_modules/react-native/Libraries/FBLazyVector"
   pod 'FBReactNativeSpec', :path => "../node_modules/react-native/Libraries/FBReactNativeSpec"
   pod 'RCTRequired', :path => "../node_modules/react-native/Libraries/RCTRequired"
@@ -42,10 +42,10 @@ target 'SpeechApptemp' do
   use_native_modules!
 end
 
-target 'SpeechApptemp-tvOS' do
-  # Pods for SpeechApptemp-tvOS
+target 'SpeechApp-tvOS' do
+  # Pods for SpeechApp-tvOS
 
-  target 'SpeechApptemp-tvOSTests' do
+  target 'SpeechApp-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end

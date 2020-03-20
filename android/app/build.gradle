@@ -128,7 +128,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.speechapptemp"
+        applicationId "com.SpeechApp"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
