@@ -9,14 +9,14 @@ import {SAVED_PHRASE_LIST_ACTION_TYPES} from './actions';
 
 export const initialState: SavedPhraseListState = [];
 
-const savedPhraseList = (
+export const savedPhraseList = (
   state: SavedPhraseListState = initialState,
   action: SavedPhraseListAction,
 ) => {
   const newState: SavedPhraseListState = {...state};
   switch (action.type) {
     case SAVED_PHRASE_LIST_ACTION_TYPES.ADD_SAVED_PHRASE:
-      const {statement, createdAt, updatedAt} = <AddSavedPhraseAction>action;
+      const {statement, createdAt, updatedAt} = <AddSavedPhraseAction>action.savedPhraseData;
       return [...newState, {statement, createdAt, updatedAt}];
     case SAVED_PHRASE_LIST_ACTION_TYPES.UPDATE_SAVED_PHRASE:
       const {index, statement, createdAt, updatedAt} = <UpdateSavedPhraseAction>action;
