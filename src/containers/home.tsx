@@ -16,6 +16,7 @@ import {
   View,
   Text,
   StatusBar,
+  Button,
 } from 'react-native';
 
 import {
@@ -25,10 +26,11 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import {NavigationContainer} from '@react-navigation/native';
 
 declare var global: {HermesInternal: null | {}};
 
-const Home = () => {
+const Home = props => {
   return (
     <>
       <StatusBar barStyle="dark-content" />
@@ -42,6 +44,10 @@ const Home = () => {
               <Text style={styles.footer}>Engine: Hermes</Text>
             </View>
           )}
+          <Button
+            title="Saved Profiles"
+            onPress={() => props.navigation.navigate('SavedPhrases')}
+          />
           <View style={styles.body}>
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Step One</Text>

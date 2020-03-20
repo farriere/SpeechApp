@@ -4,18 +4,20 @@ import * as PropTypes from 'prop-types';
 
 export interface SavedPhrasesState {}
 
-export interface SavedPhrasesProps {}
+export interface SavedPhrasesProps {
+  navigation: object;
+}
 
 class SavedPhrases extends React.Component<
   SavedPhrasesState,
   SavedPhrasesProps
 > {
-  static propTypes = {};
+  static propTypes = {
+    navigation: PropTypes.object,
+  };
 
   constructor(props: SavedPhrasesProps) {
     super(props);
-
-    this.state = {};
   }
 
   render() {

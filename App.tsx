@@ -10,6 +10,7 @@
 import 'react-native-gesture-handler';
 import React from 'react';
 import Home from './src/containers/home';
+import SavedPhrases from './src/containers/savedPhrases';
 
 import {NavigationContainer} from '@react-navigation/native';
 
@@ -28,6 +29,11 @@ const App = () => {
             name="Home"
             component={Home}
             options={{title: 'Welcome'}}
+          />
+          <Stack.Screen
+            name="SavedPhrases"
+            component={SavedPhrases}
+            options={{title: 'Saved Phrases'}}
           />
         </Stack.Navigator>
       </NavigationContainer>
