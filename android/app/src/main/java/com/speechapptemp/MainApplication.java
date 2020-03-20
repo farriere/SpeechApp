@@ -1,4 +1,4 @@
-package com.SpeechApp;
+package com.speechapp;
 
 import android.app.Application;
 import android.content.Context;

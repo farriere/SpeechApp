@@ -1,4 +1,4 @@
-package com.SpeechApp;
+package com.speechapp;
 
 import com.facebook.react.ReactActivity;
 
