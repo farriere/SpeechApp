@@ -2,13 +2,14 @@ import * as React from 'react';
 import {View, Text, Button, TextInput, FlatList} from 'react-native';
 import * as PropTypes from 'prop-types';
 import {connect, Dispatch} from 'react-redux';
-import {RootState, SavedPhraseListState, SavedPhrase} from '../store/types';
+import {RootState, SavedPhraseListState} from '../store/types';
 import {
   addSavedPhrase,
   removeSavedPhrase,
   updateSavedPhrase,
 } from '../store/saved-phrase-list/actions';
 import {AnyAction} from 'redux';
+import SavedPhraseBlock from '../components/savedPhraseBlock';
 
 export interface SavedPhrasesState {
   newPhraseText: string;
@@ -54,9 +55,9 @@ class SavedPhrases extends React.Component<
         <FlatList
           data={this.props.savedPhrases}
           renderItem={listEntry => {
-            return <Text>{listEntry.item.statement}</Text>;
+            return <SavedPhraseBlock savedPhrase={listEntry.item} />;
           }}
-          keyExtractor={(item: SavedPhrase, index): string => {
+          keyExtractor={(item, index): string => {
             return index.toString();
           }}
         />
