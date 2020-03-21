@@ -38,7 +38,7 @@ export const updateSavedPhrase = (
   },
 });
 
-export const RemoveSavedPhrase = (index: number): RemoveSavedPhraseAction => ({
+export const removeSavedPhrase = (index: number): RemoveSavedPhraseAction => ({
   type: SAVED_PHRASE_LIST_ACTION_TYPES.REMOVE_SAVED_PHRASE,
   index: index,
 });

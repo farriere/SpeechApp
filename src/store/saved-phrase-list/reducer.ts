@@ -13,14 +13,14 @@ export const savedPhraseList = (
   state: SavedPhraseListState = initialState,
   action: SavedPhraseListAction,
 ) => {
-  const newState: SavedPhraseListState = {...state};
+  const newState: SavedPhraseListState = state;
   switch (action.type) {
     case SAVED_PHRASE_LIST_ACTION_TYPES.ADD_SAVED_PHRASE:
       action = <AddSavedPhraseAction>action;
-      return [...newState, {...action.savedPhraseData}];
+      return [...newState, action.savedPhraseData];
     case SAVED_PHRASE_LIST_ACTION_TYPES.UPDATE_SAVED_PHRASE:
       action = <UpdateSavedPhraseAction>action;
-      newState[action.index] = {...action.savedPhraseData};
+      newState[action.index] = action.savedPhraseData;
       return [...newState];
     case SAVED_PHRASE_LIST_ACTION_TYPES.REMOVE_SAVED_PHRASE:
       action = <RemoveSavedPhraseAction>action;

@@ -45,7 +45,7 @@ const Home = props => {
             </View>
           )}
           <Button
-            title="Saved Profiles"
+            title="Saved Phrases"
             onPress={() => props.navigation.navigate('SavedPhrases')}
           />
           <View style={styles.body}>

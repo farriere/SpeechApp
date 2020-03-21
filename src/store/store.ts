@@ -1,11 +1,11 @@
 import {combineReducers, createStore} from 'redux';
-import {AppState} from './types';
+import {RootState} from './types';
 import {savedPhraseList} from './saved-phrase-list/reducer';
 
-const reducers = combineReducers<AppState>({
+const reducers = combineReducers<RootState>({
   savedPhraseList: savedPhraseList,
 });
 
-const store: AppState = createStore(reducers);
+const store = createStore(reducers);
 
 export default store;

@@ -27,6 +27,6 @@ export type SavedPhraseListAction =
   | UpdateSavedPhraseAction
   | RemoveSavedPhraseAction;
 
-export type AppState = {
+export type RootState = {
   savedPhraseList: SavedPhraseListState;
 };

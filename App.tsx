@@ -9,6 +9,9 @@
  */
 import 'react-native-gesture-handler';
 import React from 'react';
+import {Provider} from 'react-redux';
+import store from './src/store/store';
+
 import Home from './src/containers/home';
 import SavedPhrases from './src/containers/savedPhrases';
 
@@ -23,20 +26,22 @@ declare var global: {HermesInternal: null | {}};
 const App = () => {
   return (
     <>
-      <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen
-            name="Home"
-            component={Home}
-            options={{title: 'Welcome'}}
-          />
-          <Stack.Screen
-            name="SavedPhrases"
-            component={SavedPhrases}
-            options={{title: 'Saved Phrases'}}
-          />
-        </Stack.Navigator>
-      </NavigationContainer>
+      <Provider store={store}>
+        <NavigationContainer>
+          <Stack.Navigator>
+            <Stack.Screen
+              name="Home"
+              component={Home}
+              options={{title: 'Welcome'}}
+            />
+            <Stack.Screen
+              name="SavedPhrases"
+              component={SavedPhrases}
+              options={{title: 'Saved Phrases'}}
+            />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </Provider>
     </>
   );
 };
