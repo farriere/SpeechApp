@@ -2,13 +2,7 @@ import * as React from 'react';
 import {View, Text, Button, TextInput} from 'react-native';
 import * as PropTypes from 'prop-types';
 import {connect, Dispatch} from 'react-redux';
-import {
-  RootState,
-  SavedPhraseListState,
-  AddSavedPhraseAction,
-  RemoveSavedPhraseAction,
-  UpdateSavedPhraseAction,
-} from '../store/types';
+import {RootState, SavedPhraseListState} from '../store/types';
 import {
   addSavedPhrase,
   removeSavedPhrase,
@@ -52,7 +46,7 @@ class SavedPhrases extends React.Component<
     return (
       <View>
         <TextInput
-          placeholder="Type here to translate!"
+          placeholder="Type here to add!"
           onChangeText={newPhraseText => this.setState({newPhraseText})}
           value={this.state.newPhraseText}
         />
