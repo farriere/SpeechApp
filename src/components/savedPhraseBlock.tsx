@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {SavedPhrase} from '../store/types';
 import {TouchableOpacity, View, StyleSheet, Text} from 'react-native';
 import {ColorEnum} from '../styles/AppColors';
+import Tts from 'react-native-tts';
 
 interface savedPhraseBlockState {}
 
@@ -26,7 +27,9 @@ class SavedPhraseBlock extends React.Component<
     return (
       <TouchableOpacity>
         <View>
-          <Text style={styles.blockedText}>
+          <Text
+            style={styles.blockedText}
+            onPress={Tts.speak.bind(this, this.props.savedPhrase.statement)}>
             {this.props.savedPhrase.statement}
           </Text>
         </View>
