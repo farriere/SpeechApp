@@ -26,8 +26,6 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-import {NavigationContainer} from '@react-navigation/native';
-
 declare var global: {HermesInternal: null | {}};
 
 const Home = props => {

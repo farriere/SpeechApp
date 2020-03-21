@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {View, Text, Button, TextInput} from 'react-native';
+import {View, Text, Button, TextInput, FlatList} from 'react-native';
 import * as PropTypes from 'prop-types';
 import {connect, Dispatch} from 'react-redux';
-import {RootState, SavedPhraseListState} from '../store/types';
+import {RootState, SavedPhraseListState, SavedPhrase} from '../store/types';
 import {
   addSavedPhrase,
   removeSavedPhrase,
@@ -51,11 +51,15 @@ class SavedPhrases extends React.Component<
           value={this.state.newPhraseText}
         />
         <Button title="Add Phrase" onPress={() => this.onAddButton()} />
-        {this.props.savedPhrases.map((item, key) => (
-          <Text key={key} onPress={() => this.props.removeSavedPhrase(key)}>
-            {item.statement}
-          </Text>
-        ))}
+        <FlatList
+          data={this.props.savedPhrases}
+          renderItem={listEntry => {
+            return <Text>{listEntry.item.statement}</Text>;
+          }}
+          keyExtractor={(item: SavedPhrase, index): string => {
+            return index.toString();
+          }}
+        />
       </View>
     );
   }
