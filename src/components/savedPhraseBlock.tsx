@@ -68,7 +68,6 @@ const styles = StyleSheet.create({
   blockedText: {
     borderColor: ColorEnum.black,
     borderBottomWidth: 1,
-    height: 50,
     textAlign: 'center',
     textAlignVertical: 'center',
     fontSize: 30,
