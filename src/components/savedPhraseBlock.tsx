@@ -1,14 +1,19 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import {SavedPhrase} from '../store/types';
-import {TouchableOpacity, View, StyleSheet, Text} from 'react-native';
+import {SavedPhrase, RootState} from '../store/types';
+import {TouchableOpacity, View, StyleSheet, Text, Alert} from 'react-native';
 import {ColorEnum} from '../styles/AppColors';
 import Tts from 'react-native-tts';
+import {connect, Dispatch} from 'react-redux';
+import {AnyAction} from 'redux';
+import {removeSavedPhrase} from '../store/saved-phrase-list/actions';
 
 interface savedPhraseBlockState {}
 
 interface savedPhraseBlockProps {
   savedPhrase: SavedPhrase;
+  index: number;
+  removeSavedPhrase: Function;
 }
 
 class SavedPhraseBlock extends React.Component<
@@ -21,6 +26,23 @@ class SavedPhraseBlock extends React.Component<
 
   static propTypes = {
     savedPhrase: PropTypes.object,
+    index: PropTypes.number,
+  };
+
+  longPressDeletion = () => {
+    Alert.alert(
+      'Deleting',
+      'Are you sure you want to delete: "' +
+        this.props.savedPhrase.statement +
+        '"',
+      [
+        {
+          text: 'Delete',
+          onPress: () => this.props.removeSavedPhrase(this.props.index),
+        },
+        {text: 'Cancel', onPress: () => {}},
+      ],
+    );
   };
 
   render() {
@@ -29,7 +51,11 @@ class SavedPhraseBlock extends React.Component<
         <View>
           <Text
             style={styles.blockedText}
-            onPress={Tts.speak.bind(this, this.props.savedPhrase.statement)}>
+            onPress={Tts.speak.bind(this, this.props.savedPhrase.statement)}
+            onLongPress={this.longPressDeletion.bind(
+              this,
+              this.props.savedPhrase.statement,
+            )}>
             {this.props.savedPhrase.statement}
           </Text>
         </View>
@@ -49,4 +75,17 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SavedPhraseBlock;
+const mapStateToProps = (state: RootState) => {
+  return {};
+}
+
+const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) => {
+  return {
+    removeSavedPhrase: (index: number) => dispatch(removeSavedPhrase(index)),
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(SavedPhraseBlock);

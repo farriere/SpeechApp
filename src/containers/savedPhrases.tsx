@@ -6,7 +6,6 @@ import {RootState, SavedPhraseListState} from '../store/types';
 import {
   addSavedPhrase,
   removeSavedPhrase,
-  updateSavedPhrase,
 } from '../store/saved-phrase-list/actions';
 import {AnyAction} from 'redux';
 import SavedPhraseBlock from '../components/savedPhraseBlock';
@@ -19,7 +18,6 @@ export interface SavedPhrasesProps {
   navigation: object;
   savedPhrases: SavedPhraseListState;
   addSavedPhrase: Function;
-  removeSavedPhrase: Function;
   updateSavedPhrase: Function;
 }
 class SavedPhrases extends React.Component<
@@ -55,7 +53,12 @@ class SavedPhrases extends React.Component<
         <FlatList
           data={this.props.savedPhrases}
           renderItem={listEntry => {
-            return <SavedPhraseBlock savedPhrase={listEntry.item} />;
+            return (
+              <SavedPhraseBlock
+                savedPhrase={listEntry.item}
+                index={listEntry.index}
+              />
+            );
           }}
           keyExtractor={(item, index): string => {
             return index.toString();
@@ -74,7 +77,6 @@ const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) => {
   return {
     addSavedPhrase: (statement: string, createdAt: string, updatedAt: string) =>
       dispatch(addSavedPhrase(statement, createdAt, updatedAt)),
-    removeSavedPhrase: (index: number) => dispatch(removeSavedPhrase(index)),
   };
 };
 
