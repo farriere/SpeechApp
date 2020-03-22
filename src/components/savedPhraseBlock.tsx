@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state: RootState) => {
   return {};
-}
+};
 
 const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) => {
   return {
