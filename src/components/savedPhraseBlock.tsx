@@ -45,17 +45,20 @@ class SavedPhraseBlock extends React.Component<
     );
   };
 
+  activateTts = () => {
+    Tts.setDefaultRate(0.7);
+    Tts.stop();
+    Tts.speak(this.props.savedPhrase.statement);
+  };
+
   render() {
     return (
       <TouchableOpacity>
         <View>
           <Text
             style={styles.blockedText}
-            onPress={Tts.speak.bind(this, this.props.savedPhrase.statement)}
-            onLongPress={this.longPressDeletion.bind(
-              this,
-              this.props.savedPhrase.statement,
-            )}>
+            onPress={this.activateTts}
+            onLongPress={this.longPressDeletion}>
             {this.props.savedPhrase.statement}
           </Text>
         </View>
