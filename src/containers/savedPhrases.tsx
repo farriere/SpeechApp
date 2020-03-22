@@ -37,8 +37,14 @@ class SavedPhrases extends React.Component<
   }
 
   onAddButton = () => {
-    this.props.addSavedPhrase(this.state.newPhraseText, new Date(), new Date());
-    this.setState({newPhraseText: ''});
+    if (this.state.newPhraseText !== '') {
+      this.props.addSavedPhrase(
+        this.state.newPhraseText,
+        new Date(),
+        new Date(),
+      );
+      this.setState({newPhraseText: ''});
+    }
   };
 
   render() {
