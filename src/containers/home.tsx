@@ -20,11 +20,7 @@ import {
 } from 'react-native';
 
 import {
-  Header,
-  LearnMoreLinks,
   Colors,
-  DebugInstructions,
-  ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 declare var global: {HermesInternal: null | {}};
 
@@ -36,12 +32,6 @@ const Home = props => {
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}>
-          <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
-            </View>
-          )}
           <Button
             title="Saved Phrases"
             onPress={() => props.navigation.navigate('SavedPhrases')}
@@ -50,29 +40,21 @@ const Home = props => {
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Step One</Text>
               <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.tsx</Text> to change
-                this screen and then come back to see your edits.
+                Choose <Text style={styles.highlight}>Saved Phrases</Text> above to see all your saved phrases!
               </Text>
             </View>
             <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
+              <Text style={styles.sectionTitle}>Add Phrases</Text>
               <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
+                Add phrases by typing your sentence into the bar, then selecting Add Phrase!
               </Text>
             </View>
             <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
+              <Text style={styles.sectionTitle}>Speak or Remove</Text>
               <Text style={styles.sectionDescription}>
-                <DebugInstructions />
+                Speak a phrase by tapping it once! You can remove phrases by holding down on the phrase.
               </Text>
             </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
-            </View>
-            <LearnMoreLinks />
           </View>
         </ScrollView>
       </SafeAreaView>
