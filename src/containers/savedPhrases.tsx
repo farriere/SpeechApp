@@ -49,7 +49,7 @@ class SavedPhrases extends React.Component<
 
   render() {
     return (
-      <View>
+      <View style={{flex: 1}}>
         <TextInput
           placeholder="Type here to add!"
           onChangeText={newPhraseText => this.setState({newPhraseText})}
